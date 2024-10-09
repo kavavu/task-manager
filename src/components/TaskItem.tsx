@@ -37,8 +37,7 @@ const useStyles = makeStyles({
 
 const TaskItem: React.FC<ITaskItem> = ({ id, title, description, status }) => {
 
-    // define classes as a const filled bu useSyles of Material UI
-    // now we can use defined classed in oue elements
+   
 
     const classes = useStyles();
     return (
@@ -58,12 +57,7 @@ const TaskItem: React.FC<ITaskItem> = ({ id, title, description, status }) => {
                 <Typography className={classes.title} gutterBottom>
                     {status}
                 </Typography>
-                {
-                    /*
-                        This icon linked to the EditTask page with the id of task as a parameter
-                        we need this parameter to handle edit Task 
-                    */
-                }
+                
                 <IconButton size="small" aria-label="edit" component={Link} to={`/edit/${id}`} color="primary">
                     <EditOutlined className={classes.editIcon} />
                 </IconButton>

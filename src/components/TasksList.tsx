@@ -56,19 +56,14 @@ const useStyles = makeStyles((theme: Theme) =>
 // TaskList Component show all tasks in dashboard page
 const TasksList: React.FC = () => {
     
-    // define classes as a const filled bu useSyles of Material UI
-    // now we can use defined classed in oue elements
+
     const classes = useStyles();
 
 
-    // we retrieved the state from our Context
     const { state } = useContext(Context);
 
 
-    // in dashboard page we have 2 filter (filter by text) and (filter by status)
-    // we need 2 states to handle this filter
-    // then in order to use filterTasks(state, filter: IFilterTask) we define a filer 
-    // const and assign an object to it.
+  // filtering the text or the status in the dashboard
     let [textFilter, setTextFilter] = useState("");
     let [statusFilter, setStatusFilter] = useState("All");
     const filter: IFilterTask = { text: textFilter, status: statusFilter };
@@ -76,17 +71,16 @@ const TasksList: React.FC = () => {
 
 
 
-    // handle Filter Textbox for text
+    
     const handleTextFilter = (e: FormEvent) => {
         setTextFilter(textFilter = (e.target as HTMLInputElement).value);
     }
 
-    // handle Filter Droptdown for status
+  
     const handleSelectFilter = (e: FormEvent) => {
         setStatusFilter(statusFilter = (e.target as HTMLSelectElement).value);
     }
 
-    // this handler fill the initial values of our status selectElement
     const handleViewOfFilterDropDown = (): string[] => {
         const setOfStatusTexts: string[] = Object.values(TaskHistory).filter(value => typeof value === 'string')
         return setOfStatusTexts;
@@ -95,8 +89,7 @@ const TasksList: React.FC = () => {
 
 
 
-    // we check the state comming from useContext.
-    // if there there is not any task we should print proper message
+ 
 
     if (state.length === 0) {
         return (
@@ -117,10 +110,7 @@ const TasksList: React.FC = () => {
         );
     }
 
-    // when state has value means that we have some taks in our local storage. 
-    // so we can show it on the our list
-    // first we render our filer menu 
-    // then we show our tasks.
+    
     return (
         <>
             <Grid container justify="center" alignItems="center">
@@ -134,9 +124,9 @@ const TasksList: React.FC = () => {
                         <Divider className={classes.divider} orientation="vertical" />
                         <select onChange={handleSelectFilter} className={classes.select}>
                             {/* 
-                                Pay attention to this extra option
-                                This option is required to show all task in first render and 
-                                clean the status Filter
+                                
+                                This option is required to show all task in first render 
+                                
                             */}
                             <option>All</option>
                             {handleViewOfFilterDropDown().map((status: string, index) => (<option key={index}>{status}</option>))}

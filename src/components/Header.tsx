@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       padding: theme.spacing(0, 1),
-      // necessary for content to be below app bar
+      
       ...theme.mixins.toolbar,
       justifyContent: 'flex-end',
     },
@@ -74,23 +74,19 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-// Header componet will render our header and drawer menu
 const Header = () => {
 
 
-  // define classes as a const filled bu useSyles of Material UI
-  // now we can use defined classed in oue elements
+  
   const classes = useStyles();
   const theme = useTheme();
 
 
   
-  // this state will handle the state of our drawer menu
+  
   const [open, setOpen] = useState(false);
 
 
-
-  // these handlers will handle the openning and closing state of drawe menu
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -106,7 +102,7 @@ const Header = () => {
     <header className={classes.root}>
 
       {/* 
-          AppBar will handle header of application 
+          AppBar will handle header of the application 
       */}
 
       <AppBar
@@ -137,7 +133,6 @@ const Header = () => {
       </AppBar>
 
 
-      {/* Drawer will handle main Menu of application */}
 
       <Drawer
         className={classes.drawer}
@@ -162,7 +157,7 @@ const Header = () => {
 
 
 
-        {/* Main menu links will handle here */}
+        {/* where the main menu link is */}
         <List>
           <ListItem button key="Dashboard" component={NavLink} to="/" activeClassName="is-active" exact>
             <ListItemIcon>

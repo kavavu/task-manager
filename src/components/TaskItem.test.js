@@ -9,7 +9,7 @@ afterEach(cleanup);
 
 
 
-// this test will check te task item snapshot
+// this test will check the task item snapshot
 it("renders", () => {
   const { asFragment } = render(<Router><TaskItem /></Router>);
   expect(asFragment()).toMatchSnapshot();

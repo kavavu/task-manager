@@ -10,7 +10,7 @@ import { addTask } from "../actions/TaskActions"
 import history from '../routers/History';
 
 
-// custom styles of this component 
+// styling the addtask page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -28,17 +28,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 
-// AddTask Components helps to create new task
+
 const AddTask: React.FC = () => {
 
-    // define classes as a const filled bu useSyles of Material UI
-    // now we can use defined classed in oue elements
+    
     const globalClasses = globalStyles();
     const classes = useStyles();
 
 
 
-    // we distruct the dispatch of our context
+    
     const { dispatch } = useContext(Context);
 
 
@@ -55,7 +54,7 @@ const AddTask: React.FC = () => {
                     <Divider light  className={classes.horizontalDivider} />
 
                         { /* 
-                             Task form will dispatch addTask action 
+                             Task form will remove addTask action 
                              and then will go back to dashboard page
                           */ }
                     

@@ -10,13 +10,12 @@ import EditTask from '../components/EditTask'
 import NotFoundPage from '../components/NotFoundPage'
 
 
-// we use history and passed it in <Router> to control push history 
-// beacuse we are using history.push in some components
+
 
 const AppRouter = () => (
     <Router history={history} >
         <React.Fragment>
-            {/* CSS RESET by Material UI */}
+           
             <CssBaseline />
             <Header />
             <Switch>

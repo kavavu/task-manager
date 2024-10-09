@@ -18,7 +18,7 @@ import Context from '../context/tasksContext';
 import { editTask, removeTask } from "../actions/TaskActions";
 
 
-// custom styles of this component 
+//  styling the component 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -38,39 +38,32 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-// in this component we use id param to edit a taask 
-// TS doesn't know any thing about this tyype 
-// we should define an interface to define our id type
-// type for `match.params`
-// must be type `string` since value comes from the URL
-// then it will pass to RouteComponentProps Component
+
 interface RouterProps {
     id: string;
 }
 
-// defining custom interface for our components which 
-// will extends RouteComponentProps
+
 interface IComponentProps extends RouteComponentProps<RouterProps> {
 }
 
 
-// this Componet helps to Edit a task based in ID of task
+// this Componet helps to Edit a task 
 const EditTask: React.FC<IComponentProps> = (props) => {
 
-    // define classes as a const filled bu useSyles of Material UI
-    // now we can use defined classed in oue elements
+
     const globalClasses = globalStyles();
     const classes = useStyles();
 
 
 
-    // here we destruct our state and dispatch from Contex
+    
     const { state, dispatch } = useContext(Context);
 
 
 
-    // based on ID we will find our desired task to Edit
-    // and then will fill the form elements with its content
+    //  ID used to help  find our desired task to Edit
+    
     const selectedTask = state.find((task) => task.id === props.match.params.id)
 
 
@@ -97,8 +90,8 @@ const EditTask: React.FC<IComponentProps> = (props) => {
 
 
                     {/* 
-                        This Button handle remove a task based on ID
-                        first show a dialog to confirm
+                         Button handle remove a task based on ID
+                        
                     */}
                         <Button
                             className={classes.floatRight}
@@ -145,9 +138,8 @@ const EditTask: React.FC<IComponentProps> = (props) => {
 
 
                     {/* 
-                        here we call TaskForm component with selected task and 
-                        pass a function to handle onsubmit
-                        after editing we will redirect user to dashboard home page
+                       
+                         editing and redirecting user to dashboard home page
                     */}
                     <TaskForm
                         task={selectedTask}

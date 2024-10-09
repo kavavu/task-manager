@@ -1,7 +1,7 @@
 import { ActionTypes } from '../consts/index';
 
 
-// Each task have 4 properties. 
+// Each task have 4 properties(id,tittel of the task,description and status of the task)
 export interface ITaskItem {
     id: string;
     title: string;
@@ -9,12 +9,12 @@ export interface ITaskItem {
     status: string
 }
 
-// Our state should be an array of task items.  
+  
 export type ITasksState = ITaskItem[];
 
 
-// to control the action of our application we define 
-// 4 actions for fetching data from localStorage, Adding, Editing
+ 
+//  for fetching data for Adding, Editing
 // and Deleting
 export type ITaskAction =
     { type: ActionTypes.Fetch, tasks: ITaskItem[] } |
@@ -23,9 +23,7 @@ export type ITaskAction =
     { type: ActionTypes.Delete, id: string }
 
 
-// Our context shpuld have to property
-// state which is a array of task items
-// and dispatch which is a react dispatch
+
 export interface IContextModel {
     state: ITasksState;
     dispatch: React.Dispatch<ITaskAction>
@@ -33,10 +31,7 @@ export interface IContextModel {
 
 
 
-// to filter our task in TasksList component we define an
-// interface to filter our tasks. 
-// text can help to filter tasks based on their title and description 
-// and status will filter based on their status
+// an interface to filter our task in TasksList component 
 export interface IFilterTask {
     text: string;
     status: string;

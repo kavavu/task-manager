@@ -2,8 +2,7 @@ import { ITasksState, IFilterTask } from "../interfaces/index";
 
 
 
-// this function helps to filter tasks in *TasksList* Component
-// this finction accepts a state as tasks, filter them and return a new state
+
 
 const filterTasks = (tasks: ITasksState, filter: IFilterTask): ITasksState => {
     return tasks.filter((task) => {

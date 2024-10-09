@@ -1,9 +1,6 @@
 import { TaskHistory } from "../consts/index"
 
-// useTaskHistory is a custom hook helping to implemet application logic
-// besed on requested state transition the previous and the next value of a change must be tracked
-// so base on our state transition diagram, we return an array of prev and next value plus state itself.
-// it can help us to fill the dropdown in EditTask Component
+
 
 const useTaskHistory = (status: string): string[] => {
 
